@@ -10,6 +10,7 @@ services:
       - postgres:/data/postgres
     ports:
       - "5432:5432"
+    # outer network
     networks:
       - postgres
     restart: unless-stopped
@@ -25,10 +26,11 @@ services:
       - pgadmin:/var/lib/pgadmin
     ports:
       - "5050:80"
+    # inner network for docker
     networks:
       - postgres
     restart: unless-stopped
-
+# bridging both postgres instances
 networks:
   postgres:
     driver: bridge

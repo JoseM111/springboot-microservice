@@ -8,9 +8,10 @@
     <artifactId>jose-microservices-springboot</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <!-- customer-module -->
+    <!-- module-list -->
     <modules>
         <module>customer</module>
+        <module>fraud</module>
     </modules>
 
     <name>jose-microservices-springboot</name>

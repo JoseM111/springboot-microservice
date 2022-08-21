@@ -1,0 +1,6 @@
+# database configurations for the fraud module
+server:
+  port: 8081
+spring:
+  application:
+    name: fraud
