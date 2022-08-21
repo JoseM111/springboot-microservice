@@ -3,17 +3,20 @@ package josem111.customer.requests;
 import josem111.customer.IHelpers.IHelpers;
 
 public record CustomerRegistrationRequest(
-    String firstName,
-    String lastName,
-    String email
+        String firstName,
+        String lastName,
+        String email
 ) {
     @Override
     public String toString() {
-        return IHelpers.toStrFormatter(
-            firstName,
-            lastName,
-            email
+        String result = IHelpers.toStrFormatter(
+                firstName,
+                lastName,
+                email
         );
+
+        System.out.println(result);
+        return result;
     }
 }
 
