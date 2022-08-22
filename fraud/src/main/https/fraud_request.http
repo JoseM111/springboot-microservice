@@ -1,0 +1,9 @@
+### Send POST request with json body
+POST localhost:8080/api/v1/customers
+Content-Type: application/json
+
+{
+  "firstName": "alias111",
+  "lastName": "the great",
+  "email": "alias111@fake.com"
+}
