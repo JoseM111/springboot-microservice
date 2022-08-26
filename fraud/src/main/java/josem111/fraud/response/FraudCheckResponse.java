@@ -1,4 +1,4 @@
-package josem111.fraud.responses;
+package josem111.fraud.response;
 
 public record FraudCheckResponse(Boolean isFraudster) {
     /**

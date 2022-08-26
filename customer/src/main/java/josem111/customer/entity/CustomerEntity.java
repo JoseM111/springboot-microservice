@@ -1,4 +1,4 @@
-package josem111.customer.entities;
+package josem111.customer.entity;
 
 import lombok.*;
 

@@ -1,9 +1,9 @@
-package josem111.customer.services;
+package josem111.customer.service;
 
-import josem111.customer.entities.CustomerEntity;
-import josem111.customer.repositories.ICustomerRepository;
-import josem111.customer.requests.CustomerRegistrationRequest;
-import josem111.customer.responses.FraudCheckResponse;
+import josem111.customer.entity.CustomerEntity;
+import josem111.customer.repository.ICustomerRepository;
+import josem111.customer.request_dto.CustomerRegistrationRequestDto;
+import josem111.customer.response.FraudCheckResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +17,7 @@ public class CustomerService {
     private final ICustomerRepository customerRepository;
     private final RestTemplate restTemplate;
 
-    public void registerCustomer(CustomerRegistrationRequest request) {
+    public void registerCustomer(CustomerRegistrationRequestDto request) {
         CustomerEntity customer = CustomerEntity.customerBuilder()
                 .withFirstName(request.firstName())
                 .withLastName(request.lastName())

@@ -1,12 +1,16 @@
-package josem111.customer.requests;
+package josem111.customer.request_dto;
 
 import josem111.customer.IHelpers.IHelpers;
+import lombok.extern.slf4j.Slf4j;
 
-public record CustomerRegistrationRequest(
+import java.io.Serializable;
+
+@Slf4j
+public record CustomerRegistrationRequestDto(
         String firstName,
         String lastName,
-        String email
-) {
+        String email) implements Serializable {
+
     @Override
     public String toString() {
         String result = IHelpers.toStrFormatter(
@@ -15,18 +19,7 @@ public record CustomerRegistrationRequest(
                 email
         );
 
-        System.out.println(result);
+        log.info(result);
         return result;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

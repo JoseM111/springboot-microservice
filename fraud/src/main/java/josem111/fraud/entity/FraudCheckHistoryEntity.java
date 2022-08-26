@@ -1,4 +1,4 @@
-package josem111.fraud.entities;
+package josem111.fraud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +21,6 @@ public class FraudCheckHistoryEntity {
     @SequenceGenerator(
             name = "fraud_id_sequence",
             sequenceName = "fraud_id_sequence"
-
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,

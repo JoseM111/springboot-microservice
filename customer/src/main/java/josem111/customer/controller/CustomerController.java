@@ -1,7 +1,7 @@
-package josem111.customer.controllers;
+package josem111.customer.controller;
 
-import josem111.customer.requests.CustomerRegistrationRequest;
-import josem111.customer.services.CustomerService;
+import josem111.customer.request_dto.CustomerRegistrationRequestDto;
+import josem111.customer.service.CustomerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +17,8 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    public void registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest) {
+    public void registerCustomer(@RequestBody CustomerRegistrationRequestDto customerRegistrationRequest) {
+        // logging the new customer
         log.info("*. Registering new customer: {}", customerRegistrationRequest);
         customerService.registerCustomer(customerRegistrationRequest);
     }
