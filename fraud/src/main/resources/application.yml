@@ -11,9 +11,17 @@ spring:
     username: alias111
   jpa:
     hibernate:
-      ddl-auto: update
+      # TODO: Update line for eureka-server: NOTE-->DO-NOT DO THIS IN PRODUCTION
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+#Eureka-Client setup
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true

@@ -35,6 +35,12 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- eureka-server -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- spring-boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
