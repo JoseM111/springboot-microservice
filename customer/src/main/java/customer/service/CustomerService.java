@@ -52,9 +52,10 @@ public class CustomerService {
          * * The response (if any) is converted and returned.
          * URI Template variables are expanded using the given
          * * URI variables, if any.
+         * http://FRAUD: is the eureka-server reference for the application name
          */
         FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://localhost:8081/api/v1/fraud-check/{customerId}",
+                "http://FRAUD/api/v1/fraud-check/{customerId}",
                 FraudCheckResponse.class,
                 customer.getId()
         );
