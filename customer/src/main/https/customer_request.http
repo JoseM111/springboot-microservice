@@ -3,7 +3,7 @@ POST localhost:8080/api/v1/customers
 Content-Type: application/json
 
 {
-  "firstName": "Feign Test",
-  "lastName": "client service in action",
-  "email": "feign-package@fei.com"
+  "firstName": "Sleuth",
+  "lastName": "testing id of sleuth",
+  "email": "sleuth-package@fei.com"
 }
