@@ -1,6 +1,6 @@
 package fraud.controller;
 
-import fraud.response.FraudCheckResponse;
+import clients.fraud.response.FraudCheckResponse;
 import fraud.service.FraudCheckService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

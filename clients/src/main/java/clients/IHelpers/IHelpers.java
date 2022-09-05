@@ -1,4 +1,4 @@
-package customer.IHelpers;
+package clients.IHelpers;
 
 public interface IHelpers {
 
@@ -6,10 +6,10 @@ public interface IHelpers {
         return (
                 """
                         =========================================================
-                        CustomerEntity: {
-                          firstName: %s
-                          lastName: %s
-                          email: %s
+                        NotificationClient: {
+                          toCustomerId: %s
+                          toCustomerName: %s
+                          message: %s
                         }
                         =========================================================
                         """

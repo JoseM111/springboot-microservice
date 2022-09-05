@@ -8,11 +8,13 @@
     <artifactId>jose-microservices-springboot</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <!-- module-list -->
+    <!-- module-service list -->
     <modules>
         <module>customer</module>
         <module>fraud</module>
         <module>eureka-server</module>
+        <module>clients</module>
+        <module>notification</module>
     </modules>
 
     <name>jose-microservices-springboot</name>
@@ -32,8 +34,8 @@
     <!-- dependencies-management -->
     <dependencyManagement>
         <dependencies>
+            <!-- spring-boot-dependencies -->
             <dependency>
-                <!-- spring-boot-dependencies -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.dependencies.version}</version>
@@ -62,6 +64,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!-- openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
     </dependencies>
 

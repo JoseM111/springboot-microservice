@@ -1,12 +1,14 @@
 package customer.service;
 
+import clients.fraud.iclient.IFraudClient;
+import clients.fraud.response.FraudCheckResponse;
+import clients.notification.INotificationClient;
+import clients.notification.request_dto.NotificationRequestDto;
 import customer.entity.CustomerEntity;
 import customer.repository.ICustomerRepository;
 import customer.request_dto.CustomerRegistrationRequestDto;
-import customer.response.FraudCheckResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Objects;
 
@@ -15,7 +17,8 @@ import java.util.Objects;
 public class CustomerService {
     // dependency injecting properties
     private final ICustomerRepository customerRepository;
-    private final RestTemplate restTemplate;
+    private final INotificationClient notificationClient;
+    private final IFraudClient fraudClient;
 
     public void registerCustomer(CustomerRegistrationRequestDto request) {
         CustomerEntity customer = CustomerEntity.customerBuilder()
@@ -46,23 +49,46 @@ public class CustomerService {
         customerRepository.saveAndFlush(customer);
 
         // TODO: if fraudster
-        /**
-         * @getForObject:
-         * Retrieve a representation by doing a GET on the specified URL.
-         * * The response (if any) is converted and returned.
-         * URI Template variables are expanded using the given
-         * * URI variables, if any.
-         * http://FRAUD: is the eureka-server reference for the application name
-         */
-        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://FRAUD/api/v1/fraud-check/{customerId}",
-                FraudCheckResponse.class,
-                customer.getId()
-        );
+        FraudCheckResponse fraudCheckResponse = fraudClient
+                .isFraudster(customer.getId());
 
-        if (!Objects.requireNonNull(fraudCheckResponse).isFraudster()) return;
-        throw new IllegalStateException("[FRAUDSTER DETECTED]");
+        if (!Objects.requireNonNull(fraudCheckResponse.isFraudster())) {
+            throw new IllegalStateException("[FRAUDSTER DETECTED]");
+        }
 
         // TODO: send notification
+        notificationClient.sendNotification(
+                new NotificationRequestDto(
+                        customer.getId(),
+                        customer.getEmail(),
+                        String.format(
+                                "Welcome to the terror DOME: %s",
+                                customer.getFirstName()
+                        )));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

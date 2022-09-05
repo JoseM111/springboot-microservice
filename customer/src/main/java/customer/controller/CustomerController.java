@@ -17,10 +17,10 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    public void registerCustomer(@RequestBody CustomerRegistrationRequestDto customerRegistrationRequest) {
+    public void registerCustomer(@RequestBody CustomerRegistrationRequestDto customerRegistrationRequestDto) {
         // logging the new customer
-        log.info("*. Registering new customer: {}", customerRegistrationRequest);
-        customerService.registerCustomer(customerRegistrationRequest);
+        log.info("*. Registering new customer: {}", customerRegistrationRequestDto);
+        customerService.registerCustomer(customerRegistrationRequestDto);
     }
 }
 
