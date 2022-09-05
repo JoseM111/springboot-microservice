@@ -1,6 +1,8 @@
-# database configurations for the customer module
+# customer.yml
 server:
   port: 8080
+# ==================================================
+# spring
 spring:
   application:
     name: customer
@@ -9,6 +11,8 @@ spring:
     password: password
     url: jdbc:postgresql://localhost:5432/customer
     username: alias111
+  # --------------------
+  # jpa
   jpa:
     hibernate:
       # TODO: Update line for eureka-server: NOTE-->DO-NOT DO THIS IN PRODUCTION
@@ -18,7 +22,12 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
-#Eureka-Client setup
+  # --------------------
+  # zipkin
+  zipkin:
+    base-url: http://localhost:9411
+# ==================================================
+# eureka
 eureka:
   client:
     service-url:

@@ -57,6 +57,16 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
+        <!--
+            If spring-cloud-sleuth-zipkin is available then the app will generate and report
+            Zipkin-compatible traces via HTTP. By default, it sends them to a Zipkin collector
+            service on localhost (port 9411). Configure the location of the service using
+            spring.zipkin.baseUrl
+         -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
     </dependencies>
 </project>
 
