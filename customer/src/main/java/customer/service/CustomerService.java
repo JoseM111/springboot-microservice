@@ -10,8 +10,6 @@ import customer.request_dto.CustomerRegistrationRequestDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-
 @AllArgsConstructor
 @Service
 public class CustomerService {
@@ -52,7 +50,7 @@ public class CustomerService {
         FraudCheckResponse fraudCheckResponse = fraudClient
                 .isFraudster(customer.getId());
 
-        if (!Objects.requireNonNull(fraudCheckResponse.isFraudster())) {
+        if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("[FRAUDSTER DETECTED]");
         }
 
