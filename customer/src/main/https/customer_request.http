@@ -3,7 +3,7 @@ POST localhost:8080/api/v1/customers
 Content-Type: application/json
 
 {
-  "firstName": "Eureka",
-  "lastName": "Server/Client in action",
-  "email": "eureka-package@erk.com"
+  "firstName": "Feign Test",
+  "lastName": "client service in action",
+  "email": "feign-package@fei.com"
 }
