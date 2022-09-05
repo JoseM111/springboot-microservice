@@ -1,4 +1,4 @@
-package fraud;
+package josem111.api_gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,19 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @EnableEurekaClient
 @SpringBootApplication
-public class FraudApplication {
-
+public class APIGatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(FraudApplication.class, args);
+        SpringApplication.run(APIGatewayApplication.class, args);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
